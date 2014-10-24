@@ -98,8 +98,8 @@ fi
 
 mkdir -p $build/bin
 GOBIN=$build/bin export GOBIN
-GOROOT=$cache/$ver/go export GOROOT
-GOPATH=$build/.heroku/g export GOPATH
+GOROOT=$build/.goroot export GOROOT
+GOPATH=$build/.go export GOPATH
 PATH=$GOROOT/bin:$PATH
 
 
