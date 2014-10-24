@@ -98,7 +98,7 @@ fi
 
 mkdir -p $build/bin
 GOBIN=$build/bin export GOBIN
-GOROOT=$build/.goroot export GOROOT
+GOROOT=$cache/$ver/go export GOROOT
 GOPATH=$build/.go export GOPATH
 PATH=$GOROOT/bin:$PATH
 
@@ -161,8 +161,6 @@ else
 fi
 
 go get github.com/revel/cmd/revel
-
-rm -rf $build/.heroku
 
 mkdir -p $build/.profile.d
 echo 'PATH=$PATH:$HOME/bin' > $build/.profile.d/go.sh
