@@ -96,9 +96,11 @@ else
     echo " done"
 fi
 
+cp -R $cache/$ver/go $build/.goroot
+
 mkdir -p $build/bin
 GOBIN=$build/bin export GOBIN
-GOROOT=$cache/$ver/go export GOROOT
+GOROOT=$build/.goroot export GOROOT
 GOPATH=$build/.go export GOPATH
 PATH=$GOROOT/bin:$PATH
 
