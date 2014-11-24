@@ -159,10 +159,10 @@ then
     godep go install "${FLAGS[@]}" ./...
 else
     echo "-----> Running: go get ${FLAGS[@]} ./..."
-    go get -v "${FLAGS[@]}" ./...
+    go get "${FLAGS[@]}" ./...
 fi
 
-go get -v github.com/revel/cmd/revel
+# go get github.com/revel/cmd/revel
 
 mkdir -p $build/.profile.d
 echo 'PATH=$PATH:$HOME/bin' > $build/.profile.d/go.sh
