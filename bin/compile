@@ -157,12 +157,12 @@ if test -e $build/Godeps
 then
     echo "-----> Running: godep go install ${FLAGS[@]} ./..."
     godep go install "${FLAGS[@]}" ./...
+    # godep go install "${FLAGS[@]}" github.com/revel/cmd/revel
 else
     echo "-----> Running: go get ${FLAGS[@]} ./..."
     go get "${FLAGS[@]}" ./...
+    go get github.com/revel/cmd/revel
 fi
-
-# go get github.com/revel/cmd/revel
 
 mkdir -p $build/.profile.d
 echo 'PATH=$PATH:$HOME/bin' > $build/.profile.d/go.sh
