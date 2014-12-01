@@ -109,11 +109,8 @@ fi
 unset GIT_DIR # unset git dir or it will mess with goinstall
 cd $p
 
-export GOPATH=`godep path`:$GOPATH
-
 echo "-----> Running: go install ${FLAGS[@]} ./..."
-go install "${FLAGS[@]}" ./...
+godep go install "${FLAGS[@]}" ./...
 
 mkdir -p $build/.profile.d
 echo 'PATH=$PATH:$HOME/bin' > $build/.profile.d/go.sh
-echo "GOPATH=$(godep path):\$GOPATH" > $build/.profile.d/go.sh
