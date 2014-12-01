@@ -119,7 +119,7 @@ GOPATH=$build/.go export GOPATH
 PATH=$GOROOT/bin:$PATH
 
 
-if ! (test -d $build/Godeps || (which hg >/dev/null && which bzr >/dev/null))
+if ! (which hg >/dev/null && which bzr >/dev/null)
 then
     echo
     echo "       Tired of waiting for bzr and hg?"
@@ -155,8 +155,10 @@ unset GIT_DIR # unset git dir or it will mess with goinstall
 cd $p
 if test -e $build/Godeps
 then
-    echo "-----> Running: godep go install ${FLAGS[@]} ./..."
-    godep go install "${FLAGS[@]}" ./...
+    echo "-----> Running: godep restore"
+    godep restore
+    echo "-----> Running: go get ${FLAGS[@]} ./..."
+    go install "${FLAGS[@]}" ./...
 else
     echo "-----> Running: go get ${FLAGS[@]} ./..."
     go get "${FLAGS[@]}" ./...
