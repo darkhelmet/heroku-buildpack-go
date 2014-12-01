@@ -109,7 +109,7 @@ fi
 unset GIT_DIR # unset git dir or it will mess with goinstall
 cd $p
 
-echo "-----> Running: go install ${FLAGS[@]} ./..."
+echo "-----> Running: godep go install ${FLAGS[@]} ./..."
 godep go install "${FLAGS[@]}" ./...
 
 mkdir -p $build/.profile.d
